@@ -34,7 +34,7 @@ import {
   DatePicker,
   TimeSelect,
   TimePicker,
-  // Popover,
+  Popover,
   Tooltip,
   Breadcrumb,
   BreadcrumbItem,
@@ -49,47 +49,47 @@ import {
   Icon,
   Row,
   Col,
-  // Upload,
-  // Progress,
+  Upload,
+  Progress,
   // @ts-ignore
   Spinner,
-  // Badge,
+  Badge,
   Card,
-  // Rate,
-  // Steps,
-  // Step,
-  // Carousel,
+  Rate,
+  Steps,
+  Step,
+  Carousel,
   // @ts-ignore
   Scrollbar,
-  // CarouselItem,
-  // Collapse,
-  // CollapseItem,
-  // Cascader,
+  CarouselItem,
+  Collapse,
+  CollapseItem,
+  Cascader,
   ColorPicker,
-  // Transfer,
+  Transfer,
   Container,
   Header,
   Aside,
   Main,
   Footer,
-  // Timeline,
-  // TimelineItem,
+  Timeline,
+  TimelineItem,
   Link,
   Divider,
-  // Image,
-  // Calendar,
+  Image,
+  Calendar,
   Backtop,
-  // InfiniteScroll,
-  // PageHeader,
+  InfiniteScroll,
+  PageHeader,
   // @ts-ignore
-  // CascaderPanel,
-  // Avatar,
-  // Drawer,
-  // Popconfirm,
+  CascaderPanel,
+  Avatar,
+  Drawer,
+  Popconfirm,
   Loading,
   MessageBox,
-  Message
-  // Notification
+  Message,
+  Notification
 } from 'element-ui'
 
 Vue.prototype.$ELEMENT = {
@@ -126,7 +126,7 @@ Vue.use(TableColumn)
 Vue.use(DatePicker)
 Vue.use(TimeSelect)
 Vue.use(TimePicker)
-// Vue.use(Popover)
+Vue.use(Popover)
 Vue.use(Tooltip)
 Vue.use(Breadcrumb)
 Vue.use(BreadcrumbItem)
@@ -141,40 +141,40 @@ Vue.use(Slider)
 Vue.use(Icon)
 Vue.use(Row)
 Vue.use(Col)
-// Vue.use(Upload)
-// Vue.use(Progress)
+Vue.use(Upload)
+Vue.use(Progress)
 Vue.use(Spinner)
-// Vue.use(Badge)
+Vue.use(Badge)
 Vue.use(Card)
-// Vue.use(Rate)
-// Vue.use(Steps)
-// Vue.use(Step)
-// Vue.use(Carousel)
+Vue.use(Rate)
+Vue.use(Steps)
+Vue.use(Step)
+Vue.use(Carousel)
 Vue.use(Scrollbar)
-// Vue.use(CarouselItem)
-// Vue.use(Collapse)
-// Vue.use(CollapseItem)
-// Vue.use(Cascader)
+Vue.use(CarouselItem)
+Vue.use(Collapse)
+Vue.use(CollapseItem)
+Vue.use(Cascader)
 Vue.use(ColorPicker)
-// Vue.use(Transfer)
+Vue.use(Transfer)
 Vue.use(Container)
 Vue.use(Header)
 Vue.use(Aside)
 Vue.use(Main)
 Vue.use(Footer)
-// Vue.use(Timeline)
-// Vue.use(TimelineItem)
+Vue.use(Timeline)
+Vue.use(TimelineItem)
 Vue.use(Link)
 Vue.use(Divider)
-// Vue.use(Image)
-// Vue.use(Calendar)
+Vue.use(Image)
+Vue.use(Calendar)
 Vue.use(Backtop)
-// Vue.use(InfiniteScroll)
-// Vue.use(PageHeader)
-// Vue.use(CascaderPanel)
-// Vue.use(Avatar)
-// Vue.use(Drawer)
-// Vue.use(Popconfirm)
+Vue.use(InfiniteScroll)
+Vue.use(PageHeader)
+Vue.use(CascaderPanel)
+Vue.use(Avatar)
+Vue.use(Drawer)
+Vue.use(Popconfirm)
 
 // TODO
 // fix bug https://github.com/ElementUI/babel-plugin-component/issues/31
@@ -190,5 +190,5 @@ Vue.prototype.$msgbox = _MessageBox
 Vue.prototype.$alert = alert
 Vue.prototype.$confirm = confirm
 Vue.prototype.$prompt = prompt
-// Vue.prototype.$notify = Notification
+Vue.prototype.$notify = Notification
 Vue.prototype.$message = Message
