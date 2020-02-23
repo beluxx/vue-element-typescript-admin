@@ -1,6 +1,6 @@
 
 <p align="center">
-  <img width="120" src="public/favicon.ico">
+  <img width="120" src="src/assets/common/logo.png">
 </p>
 
 ## 总览
@@ -11,9 +11,11 @@ element-ui后台管理系统模板(自用)，它基于 [vue](https://github.com/
 
 这个模板我只保留了登录页,主页,404,401四个页面,mainlayout,pagelayout两种不同的布局,用来初始化一个项目最好不过了
 
+*权限设置方面我写死了admin权限只需要登录即可获得,这个根据需要进行修改(store/module/user.ts 第98行代码处)
+
 单独页面编辑的最佳实践方案我会在后面添加
 
-sentry前端异常监控记得改成自己的项目服务器(两处地方要修改: 项目目录/.sentryclirc 和 src/utils/handleError.ts)
+*sentry前端异常监控记得改成自己的项目服务器(两处地方要修改: 项目目录/.sentryclirc 和 src/utils/handleError.ts)
 
 如果觉得好用,记得给个star哦
 
@@ -82,8 +84,16 @@ sentry前端异常监控记得改成自己的项目服务器(两处地方要修�
 
 ## 前序准备
 
-你需要在本地安装 [nodejs](http://nodejs.org/), 包管理工具[yarn](https://www.yarnpkg.com/lang/en/), 本项目技术栈基于 [typescript](https://www.typescriptlang.org/)、[vue](https://cn.vuejs.org/index.html)、[vuex](https://vuex.vuejs.org/zh-cn/)、[vue-router](https://router.vuejs.org/zh-cn/) 、[vue-cli](https://github.com/vuejs/vue-cli) 、[axios](https://github.com/axios/axios) 和 [elementui](https://element.eleme.cn/)，所有的请求数据都使用[faker.js](https://github.com/Marak/Faker.js)进行模拟，使用[tailwindcss](https://www.tailwindcss.cn/)优化css文件体积, 使用[sentry](https://docs.sentry.io/)进行线上bug监控, 提前了解和学习这些知识会对开发本项目有很大的帮助。
-本项目严格使用[eslint](https://eslint.bootcss.com/)作为代码检测工具,IDE工具强烈推荐使用[webstorm](https://www.jetbrains.com/webstorm/) 2019.3以上的版本 和[vscode](https://code.visualstudio.com/), 如果你第一次使用[webstorm](https://www.jetbrains.com/webstorm/),那么我推荐你导入我提供的配置文件(项目目录下的webstorm_settings.zip),以节省IDE配置时间
+你需要在本地安装 [nodejs](http://nodejs.org/), 包管理工具[yarn](https://www.yarnpkg.com/lang/en/),
+本项目技术栈基于 [typescript](https://www.typescriptlang.org/)、[vue](https://cn.vuejs.org/index.html)、[vuex](https://vuex.vuejs.org/zh-cn/)、[vue-router](https://router.vuejs.org/zh-cn/) 、[vue-cli](https://github.com/vuejs/vue-cli) 、[axios](https://github.com/axios/axios) 和 [elementui](https://element.eleme.cn/)，
+使用[tailwindcss](https://www.tailwindcss.cn/)优化css文件体积,
+使用[sentry](https://docs.sentry.io/)进行线上bug监控,
+提前了解和学习这些知识会对开发本项目有很大的帮助。
+本项目使用[eslint](https://eslint.bootcss.com/)作为代码检测工具,
+IDE工具强烈推荐使用[webstorm](https://www.jetbrains.com/webstorm/) 2019.3以上的版本
+和[vscode](https://code.visualstudio.com/),
+如果你第一次使用[webstorm](https://www.jetbrains.com/webstorm/),那么我推荐你导入我提供的配置文件(项目目录下的webstorm_settings.zip),以节省IDE配置时间
+
 ## 目录结构
 
 ```bash
@@ -143,7 +153,7 @@ npm install yarn -g
 yarn install
 ```
 
-### 启动mock服务器(需要自行修改,我不提供,因为我使用自己公司搭建的)
+### 启动mock服务器(需要启动mock的话,请先自行添加api,我不提供api,因为我使用自己公司搭建的)
 ```bash
 yarn mock
 ```
@@ -170,12 +180,6 @@ yarn lint
 
 ```bash
 yarn test:unit
-```
-
-### 运行端对端测试
-
-```bash
-yarn test:e2e
 ```
 
 ### 自动生成 svg 组件(重要: 添加svg文件后请运行一次)
