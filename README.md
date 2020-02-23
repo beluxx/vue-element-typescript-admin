@@ -77,6 +77,7 @@ element-ui后台管理系统模板(自用)，它基于 [vue](https://github.com/
   - 使用vue官方强烈推荐的配置
 
 - 组件
+  - elementui 组件做了按需引入,默认全部组件都有引入,打包前记得将未使用的组件注释掉(src/plugins/element-ui.ts)
   - 组件只保留几个常用组件
   - 推荐使用 https://github.com/Armour/vue-typescript-admin-template 的组件
 
@@ -84,14 +85,20 @@ element-ui后台管理系统模板(自用)，它基于 [vue](https://github.com/
 
 ## 前序准备
 
-你需要在本地安装 [nodejs](http://nodejs.org/), 包管理工具[yarn](https://www.yarnpkg.com/lang/en/),
-本项目技术栈基于 [typescript](https://www.typescriptlang.org/)、[vue](https://cn.vuejs.org/index.html)、[vuex](https://vuex.vuejs.org/zh-cn/)、[vue-router](https://router.vuejs.org/zh-cn/) 、[vue-cli](https://github.com/vuejs/vue-cli) 、[axios](https://github.com/axios/axios) 和 [elementui](https://element.eleme.cn/)，
-使用[tailwindcss](https://www.tailwindcss.cn/)优化css文件体积,
-使用[sentry](https://docs.sentry.io/)进行线上bug监控,
-提前了解和学习这些知识会对开发本项目有很大的帮助。
-本项目使用[eslint](https://eslint.bootcss.com/)作为代码检测工具,
-IDE工具强烈推荐使用[webstorm](https://www.jetbrains.com/webstorm/) 2019.3以上的版本
-和[vscode](https://code.visualstudio.com/),
+你需要在本地安装 [nodejs](http://nodejs.org/), 包管理工具[yarn](https://www.yarnpkg.com/lang/en/)
+
+本项目技术栈基于 [typescript](https://www.typescriptlang.org/)、[vue](https://cn.vuejs.org/index.html)、[vuex](https://vuex.vuejs.org/zh-cn/)、[vue-router](https://router.vuejs.org/zh-cn/) 、[vue-cli](https://github.com/vuejs/vue-cli) 、[axios](https://github.com/axios/axios) 和 [elementui](https://element.eleme.cn/)
+
+使用[tailwindcss](https://www.tailwindcss.cn/)优化css文件体积
+
+使用[sentry](https://docs.sentry.io/)进行线上bug监控
+
+提前了解和学习这些知识会对开发本项目有很大的帮助
+
+本项目使用[eslint](https://eslint.bootcss.com/)作为代码检测工具
+
+IDE工具强烈推荐使用[webstorm](https://www.jetbrains.com/webstorm/) 2019.3以上的版本 和[vscode](https://code.visualstudio.com/)
+
 如果你第一次使用[webstorm](https://www.jetbrains.com/webstorm/),那么我推荐你导入我提供的配置文件(项目目录下的webstorm_settings.zip),以节省IDE配置时间
 
 ## 目录结构
