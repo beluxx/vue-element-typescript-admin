@@ -32,9 +32,9 @@ import { Component, Vue } from 'vue-property-decorator'
 import { Action, State } from 'vuex-class'
 
 @Component({
-  name: 'Login'
+  name: 'LangSelect'
 })
-export default class Login extends Vue {
+export default class LangSelect extends Vue {
   @State(state => state.app.language) readonly language!: string
 
   @Action('app/SetLanguage') private SetLanguage!: (lang: string) => void
