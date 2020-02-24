@@ -1,7 +1,7 @@
 {
   "name": "admin",
   "version": "0.1.0",
-  "author": "beetledata",
+  "author": "urichen9606@gmail.com",
   "private": true,
   "scripts": {
     "dev": "vue-cli-service serve",
