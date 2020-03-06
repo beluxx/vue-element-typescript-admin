@@ -7,19 +7,9 @@
 
 element-ui后台管理系统模板(自用)，它基于 [vue](https://github.com/vuejs/vue), [typescript](https://www.typescriptlang.org/), [elementui](https://element.eleme.cn/), [tailwindcss](https://www.tailwindcss.cn/), [sentry](https://docs.sentry.io/)实现。
 
-这是自己开发多个项目后的经验总结,主要借鉴了https://github.com/Armour/vue-typescript-admin-template ,在其基础上做了很多优化,修复了bug,拓展了功能.
+这是自己开发多个项目后的经验总结,主要借鉴了https://github.com/Armour/vue-typescript-admin-template ,在其基础上做了一些优化,修复了bug,拓展了功能.
 
-这个模板我只保留了登录页,主页,404,401四个页面,mainlayout,pagelayout两种不同的布局,用来初始化一个项目最好不过了
-
-*权限设置方面我写死了admin权限只需要登录即可获得,这个根据需要进行修改(store/module/user.ts 第98行代码处)
-
-单独页面编辑的最佳实践方案我会在后面添加
-
-*sentry前端异常监控记得改成自己的项目服务器(两处地方要修改: 项目目录/.sentryclirc 和 src/utils/handleError.ts)
-
-如果觉得好用,记得给个star哦
-
-如果能帮助我完善这个模板就更好了
+只保留了登录页,主页,404,401四个页面,mainlayout,pagelayout两种不同的布局,用来初始化一个项目最好不过
 
 ## 功能
 
@@ -78,7 +68,6 @@ element-ui后台管理系统模板(自用)，它基于 [vue](https://github.com/
 
 - 组件
   - elementui 组件做了按需引入,默认全部组件都有引入,打包前记得将未使用的组件注释掉(src/plugins/element-ui.ts)
-  - 组件只保留几个常用组件
   - 推荐使用 https://github.com/Armour/vue-typescript-admin-template 的组件
 
 ```
@@ -93,10 +82,6 @@ element-ui后台管理系统模板(自用)，它基于 [vue](https://github.com/
 
 使用[sentry](https://docs.sentry.io/)进行线上bug监控
 
-提前了解和学习这些知识会对开发本项目有很大的帮助
-
-本项目使用[eslint](https://eslint.bootcss.com/)作为代码检测工具
-
 IDE工具强烈推荐使用[webstorm](https://www.jetbrains.com/webstorm/) 2019.3以上的版本 和[vscode](https://code.visualstudio.com/)
 
 如果你第一次使用[webstorm](https://www.jetbrains.com/webstorm/),那么我推荐你导入我提供的配置文件(项目目录下的webstorm_settings.zip),以节省IDE配置时间
@@ -104,7 +89,7 @@ IDE工具强烈推荐使用[webstorm](https://www.jetbrains.com/webstorm/) 2019.
 ## 目录结构
 
 ```bash
-├── mock                       # mock 服务器 与 模拟数据 swagger.yml可以作为api文档查看
+├── mock                       # mock 服务器
 ├── public                     # 静态资源
 │   │── static                 # 静态资源目录
 │   │── upgrade-your-browser   # 提示用户升级浏览器的插件(需在index.html注入)
@@ -112,7 +97,7 @@ IDE工具强烈推荐使用[webstorm](https://www.jetbrains.com/webstorm/) 2019.
 │   └── index.html             # html模板
 ├── src                        # 源代码
 │   ├── api                    # 所有请求
-│   ├── assets                 # 主题 字体等静态资源 (由 webpack 处理加载)
+│   ├── assets                 # 主题 字体等静态资源
 │   ├── components             # 全局组件
 │   ├── directive              # 全局指令
 │   ├── filters                # 全局过滤函数
@@ -151,7 +136,7 @@ IDE工具强烈推荐使用[webstorm](https://www.jetbrains.com/webstorm/) 2019.
 
 ### 安装依赖
 
-### 使用yarn作为包管理(vue官方指定推荐)
+### 请使用yarn作为包管理
 ```bash
 npm install yarn -g
 ```
@@ -160,7 +145,7 @@ npm install yarn -g
 yarn install
 ```
 
-### 启动mock服务器(需要启动mock的话,请先自行添加api,我不提供api,因为我使用自己公司搭建的)
+### 启动mock服务器
 ```bash
 yarn mock
 ```
