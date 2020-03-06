@@ -156,7 +156,7 @@ export default class TagsView extends Vue {
     this.$nextTick(() => {
       for (const tag of tags) {
         if ((tag.to as ITagView).path === this.$route.path) {
-          (this.$refs.scrollPane as ScrollPane).moveToTarget(tag as any)
+          (this.$refs.scrollPane as any).moveToTarget(tag as any)
           // When query is different then update
           if ((tag.to as ITagView).fullPath !== this.$route.fullPath) {
             this.updateVisitedView(this.$route)
@@ -185,7 +185,7 @@ export default class TagsView extends Vue {
   }
 
   private closeOthersTags() {
-    this.$router.push(this.selectedTag)
+    this.$router.push(this.selectedTag as any)
     this.delOthersViews(this.selectedTag)
     this.moveToCurrentTag()
   }
@@ -201,7 +201,7 @@ export default class TagsView extends Vue {
   private toLastView(visitedViews: ITagView[], view: ITagView) {
     const latestView = visitedViews.slice(-1)[0]
     if (latestView) {
-      this.$router.push(latestView)
+      this.$router.push(latestView as any)
     } else {
       // Default redirect to the home page if there is no tags-view, adjust it if you want
       if (view.name === 'Dashboard') {

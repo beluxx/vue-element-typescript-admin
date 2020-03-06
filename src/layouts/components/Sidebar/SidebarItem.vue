@@ -120,7 +120,7 @@ export default class SidebarItem extends Vue {
   }
 
   get isSubActive() {
-    return this.isHiddenDropIcon && this.theOnlyOneChild?.children?.map(child => child.name).includes(this.$route.name)
+    return this.isHiddenDropIcon && this.theOnlyOneChild?.children?.map(child => child.name).includes(`${this.$route.name}`)
   }
 
   private resolvePath(routePath: string) {
