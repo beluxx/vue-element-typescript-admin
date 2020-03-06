@@ -1,5 +1,5 @@
 const path = require('path')
-const { title, devServerPort } = require('./src/settings.js')
+const settings = require('./src/settings.js').cliSettings
 const SentryWebpackPlugin = require('@sentry/webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
@@ -7,32 +7,29 @@ function resolve(dir) {
   return path.join(__dirname, dir)
 }
 
-const appName = title || 'app'
-
 module.exports = {
-  publicPath: '/admin/',
-  outputDir: 'dist/admin',
-  assetsDir: 'static',
+  publicPath: settings.publicPath,
+  outputDir: settings.outputDir,
+  assetsDir: settings.assetsDir,
   productionSourceMap: true,
   lintOnSave: process.env.NODE_ENV !== 'production',
   devServer: {
-    port: devServerPort,
+    port: settings.port,
     progress: false,
+    https: true,
     open: false,
     overlay: {
       warnings: false,
       errors: true
     },
     proxy: {
-      // change xxx-api/login => /mock-api/v1/login
-      // detail: https://cli.vuejs.org/config/#devserver-proxy
-      [process.env.VUE_APP_BASE_API]: {
+      '/': {
         // target: `http://localhost:${mockServerPort}/mock-api/v1`,
         target: `http://120.79.204.212:9090`,
-        changeOrigin: true, // needed for virtual hosted sites
-        ws: true, // proxy websockets
+        changeOrigin: true,
+        ws: true,
         pathRewrite: {
-          ['^' + process.env.VUE_APP_BASE_API]: ''
+          ['^' + '/']: ''
         }
       }
     }
@@ -55,7 +52,7 @@ module.exports = {
   configureWebpack: {
     // provide the app's title in webpack's name field, so that
     // it can be accessed in index.html to inject the correct title.
-    name: appName,
+    name: settings.title,
     resolve: {
       alias: {
         '@': resolve('src')
@@ -66,7 +63,7 @@ module.exports = {
   chainWebpack(config) {
     // provide the app's title in webpack's name field, so that
     // it can be accessed in index.html to inject the correct title.
-    config.set('name', appName)
+    config.set('name', settings.title)
     // set preserveWhitespace
     config.module
       .rule('vue')
@@ -117,10 +114,10 @@ module.exports = {
       // sentry错误监控配置(自动上传sourcemap)
       config.plugin('sentry').use(SentryWebpackPlugin, [{
         ignore: ['node_modules'],
-        include: './dist/admin/static/js', // 上传的js
+        include: `${settings.outputDir}/${settings.assetsDir}/js`, // 上传的js
         configFile: 'sentry.properties', // 配置文件地址
         release: process.env.RELEASE_VERSION, // 版本号
-        urlPrefix: '~/admin/static/js' // cdn js的代码路径前缀
+        urlPrefix: `~/${settings.name}/${settings.assetsDir}/js` // cdn js的代码路径前缀
       }])
 
       // 构建完成后自动删除sourceMap文件
@@ -128,7 +125,7 @@ module.exports = {
         {
           verbose: true, // 控制台打印信息
           cleanOnceBeforeBuildPatterns: [], // 构建前不需要删除
-          cleanAfterEveryBuildPatterns: ['static/js/*.map'], // 构建完成后删除指定的文件
+          cleanAfterEveryBuildPatterns: [`${settings.assetsDir}/js/*.map`], // 构建完成后删除指定的文件
           protectWebpackAssets: false // 必须设置为false否则文件不会被删除
         }
       ])

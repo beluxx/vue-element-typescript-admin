@@ -43,9 +43,9 @@ const getPageTitle = (key: string) => {
   const hasKey = i18n.te(`route.${key}`)
   if (hasKey) {
     const pageName = i18n.t(`route.${key}`)
-    return `${settings.title} - ${pageName}`
+    return `${settings.appSettings.title} - ${pageName}`
   }
-  return `${settings.title}`
+  return `${settings.appSettings.title}`
 }
 
 /**

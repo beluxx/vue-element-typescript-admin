@@ -148,15 +148,10 @@ export default class Login extends Vue {
       this.passwordType = 'password'
     }
     this.$nextTick(() => {
-      (this.$refs.password as Input).focus()
+      this.passwordInputElement.focus()
     })
   }
 
-  /**
-   * 登录
-   * 这里结合了vuex的action来进行登录
-   * 完全也可以直接引用@/api/user的login接口来进行登录
-   */
   private handleLogin() {
     this.dataFormElement.validate(async(valid: boolean) => {
       if (!valid) {
@@ -200,7 +195,6 @@ export default class Login extends Vue {
 
 <style lang="scss" scoped>
   .login-container {
-    /*详见tailwindcss用法*/
     @apply mx-auto h-full;
     background-color: #F6F6F6;
     .login-bg {

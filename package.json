@@ -1,13 +1,12 @@
 {
-  "name": "admin",
-  "version": "0.1.0",
+  "name": "admin-element",
+  "version": "1.0.0",
   "author": "urichen9606@gmail.com",
   "private": true,
   "scripts": {
     "dev": "vue-cli-service serve",
     "serve": "concurrently \"npm:mock\" \"vue-cli-service serve\"",
     "build": "vue-cli-service build --report",
-    "build:stage": "vue-cli-service build --mode staging",
     "lint": "vue-cli-service lint",
     "mock": "cd mock && ts-node-dev mock-server.ts",
     "svg": "vsvg -s ./src/icons/svg -t ./src/icons/components --ext ts --es6",

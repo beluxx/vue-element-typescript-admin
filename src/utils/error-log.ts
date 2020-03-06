@@ -4,7 +4,7 @@ import { isArray } from '@/utils/validate'
 import settings from '@/settings'
 import { handleError } from '@/utils/handleErrors'
 
-const { errorLog: needErrorLog } = settings
+const { errorLog: needErrorLog } = settings.appSettings
 
 const checkNeed = () => {
   const env = process.env.NODE_ENV

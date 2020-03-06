@@ -128,13 +128,13 @@ IDE工具强烈推荐使用[webstorm](https://www.jetbrains.com/webstorm/) 2019.
 │   ├── App.vue                # 入口页面
 │   ├── main.js                # 入口文件 加载组件 初始化等
 │   ├── permission.ts          # 权限管理
-│   ├── settings.ts            # 设置文件
-│   │   │── settings.js        # 设置文件js版(用于vue.config.js引用,因为vue.config.js暂时不支持ts)
+│   ├── settings.ts            # 设置文件ts版导出用
+│   │   └─── settings.js       # 设置文件js
 │   └── shims.d.ts             # 模块注入
 ├── tests                      # 测试
-├── .browserslistrc            # browserslistrc 配置文件 (用于支持 Autoprefixer)
+├── .browserslistrc            # browserslistrc 配置文件
 ├── .editorconfig              # 编辑器相关配置
-├── .env.xxx                   # 环境变量配置(打包前一定要设置production环境API地址)
+├── .env.xxx                   # 环境变量配置
 ├── .eslintrc.js               # eslint 配置
 ├── .sentryclirc               # sentry前端异常监控 配置
 ├── alias.config.js            # 路径别名 配置(使用webstorm IDE时需要将其设置为webpack配置文件才能正确解析路径别名)

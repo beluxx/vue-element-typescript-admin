@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import { Message } from 'element-ui'
 import to from 'await-to-js'
+import settings from '@/settings'
+
+const sentryCliSettings = settings.sentryCliSettings
 
 // TODO
 // fix bug https://github.com/ElementUI/babel-plugin-component/issues/31
@@ -23,8 +26,8 @@ const initSentry = () => {
       .then(([{ sentryModule }]) => {
         const { Sentry, Integrations } = sentryModule
         Sentry.init({
-          dsn: 'https://85b26f0175654ebd91324100ee47063c@sentry.io/2782614',
-          release: process.env.RELEASE_VERSION,
+          dsn: sentryCliSettings.dsn,
+          release: sentryCliSettings.release,
           environment: process.env.NODE_ENV,
           integrations: [
             new Integrations.Vue({
