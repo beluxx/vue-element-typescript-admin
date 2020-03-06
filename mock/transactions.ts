@@ -1,6 +1,6 @@
 import faker from 'faker'
 import { Response, Request } from 'express'
-import { ITransactionData } from '../src/api/types'
+import { ITransactionData } from './types'
 
 const transactionList: ITransactionData[] = []
 const transactionCount = 20

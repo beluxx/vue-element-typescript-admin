@@ -1,6 +1,6 @@
 import faker from 'faker'
 import { Response, Request } from 'express'
-import { IArticleData } from '../src/api/types'
+import { IArticleData } from './types'
 
 const articleList: IArticleData[] = []
 const articleCount = 100

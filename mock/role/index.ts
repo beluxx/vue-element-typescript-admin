@@ -1,7 +1,7 @@
 import faker from 'faker'
 import { Response, Request } from 'express'
 import { asyncRoutes, constantRoutes } from './routes'
-import { IRoleData } from '../../src/api/types'
+import { IRoleData } from '../types'
 
 const routes = [...constantRoutes, ...asyncRoutes]
 const roles: IRoleData[] = [

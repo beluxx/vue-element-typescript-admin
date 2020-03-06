@@ -10,8 +10,10 @@ import * as api from './api'
 import { accessTokenAuth } from './security'
 import settings from '../src/settings'
 
+const cliSettings = settings.cliSettings
+
 const app = express()
-const port = settings.mockServerPort
+const port = cliSettings.port
 const { connector, summarise } = require('swagger-routes-express')
 
 // Compression
@@ -76,9 +78,11 @@ function onError(error: any) {
     case 'EACCES':
       console.error('Express ERROR (app) : %s requires elevated privileges', bind)
       process.exit(1)
+      break
     case 'EADDRINUSE':
       console.error('Express ERROR (app) : %s is already in use', bind)
       process.exit(1)
+      break
     default:
       throw error
   }
