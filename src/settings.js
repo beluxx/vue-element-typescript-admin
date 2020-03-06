@@ -14,6 +14,8 @@ const IS_PROD = process.env.NODE_ENV === 'production'
 
 const APP_NAME = 'admin-element'
 const VERSION = '@1.0.0'
+const HTTPS = false
+
 const DEV_HOST = Object.values(iptable).find(item => item !== '127.0.0.1') || 'localhost'
 const DEV_PORT = 8080
 
@@ -24,9 +26,10 @@ const prodSettings = {
   name: APP_NAME, // 项目名
   title: APP_NAME, // 网页标题
   version: VERSION, // 版本号
+  https: HTTPS,
   host: PROD_HOST, // 域名
   port: PROD_PORT, // 端口
-  baseUrl: `http://${PROD_HOST}:${PROD_PORT}`, // 协议域名端口号
+  baseUrl: `${HTTPS ? 'https': 'http'}://${PROD_HOST}:${PROD_PORT}`, // 协议域名端口号
   assetsDir: 'static', // 静态资源目录
   publicPath: `/${APP_NAME}/`, // 服务器目录
   outputDir: `D:/WWW/${APP_NAME}${VERSION}`, // 打包文件输出目录
@@ -38,7 +41,7 @@ const devSettings = {
   title: `${APP_NAME} for dev`,
   host: DEV_HOST,
   port: DEV_PORT,
-  baseUrl: `http://${DEV_HOST}:${DEV_PORT}`
+  baseUrl: `${HTTPS ? 'https': 'http'}://${DEV_HOST}:${DEV_PORT}`
 }
 
 const cliSettings = IS_PROD ? prodSettings : devSettings

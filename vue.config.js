@@ -16,7 +16,8 @@ module.exports = {
   devServer: {
     port: settings.port,
     progress: false,
-    https: true,
+    https: settings.https,
+    disableHostCheck: true,
     open: false,
     overlay: {
       warnings: false,
@@ -24,7 +25,6 @@ module.exports = {
     },
     proxy: {
       '/': {
-        // target: `http://localhost:${mockServerPort}/mock-api/v1`,
         target: `http://120.79.204.212:9090`,
         changeOrigin: true,
         ws: true,
@@ -50,9 +50,6 @@ module.exports = {
   },
 
   configureWebpack: {
-    // provide the app's title in webpack's name field, so that
-    // it can be accessed in index.html to inject the correct title.
-    name: settings.title,
     resolve: {
       alias: {
         '@': resolve('src')
