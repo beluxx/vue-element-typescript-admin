@@ -131,7 +131,7 @@ module.exports = {
     // `npm i -D simple-progress-webpack-plugin` to use
     config.plugin('simple-progress-webpack-plugin').use(require.resolve('simple-progress-webpack-plugin'), [
       {
-        format: 'compact' // options are minimal, compact, expanded, verbose
+        format: 'minimal' // options are minimal, compact, expanded, verbose
       }
     ])
   }
