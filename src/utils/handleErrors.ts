@@ -58,7 +58,6 @@ export const REQUEST_CANCEL = 'Request Cancel'
 export const REQUEST_TIMEOUT = 'timeout'
 export const REQUEST_404 = 'status code 404'
 export const RESOLVED_ERROR = 'Error Has Been Resolved'
-export const CANCEL_ERROR = 'Uncaught (in promise) cancel'
 
 /**
  * @description 判断错误类型
@@ -91,8 +90,6 @@ export const handleError = async(
   let ajaxMessage = ''
   switch (true) {
     case hasErrorOf(errorString, REQUEST_CANCEL):
-      return
-    case hasErrorOf(errorString, CANCEL_ERROR):
       return
     case hasErrorOf(errorString, RESOLVED_ERROR):
       return
