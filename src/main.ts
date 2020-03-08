@@ -19,6 +19,10 @@ import * as filters from '@/filters'
 import SvgIcon from 'vue-svgicon'
 import globalComponents from '@/components'
 
+if (process.env.NODE_ENV !== 'production') {
+  import(/* webpackChunkName: "vconsole" */'@/plugins/vconsole')
+}
+
 Vue.use(SvgIcon, {
   tagName: 'svg-icon',
   defaultWidth: '1em',
