@@ -38,7 +38,7 @@
                 name="password"
                 autocomplete="on"
                 prefix-icon="el-icon-lock"
-                @keyup.enter.native="handleLogin"
+                @keyup.enter.native="handleUserLogin"
               />
               <span
                 class="show-pwd"
@@ -53,7 +53,7 @@
                 :loading="loading"
                 type="primary"
                 style="width:100%; margin-bottom:30px;"
-                @click.native.prevent="handleLogin"
+                @click.native.prevent="handleUserLogin"
               >
                 {{ $t('login.logIn') }}
               </el-button>
@@ -90,6 +90,7 @@ import { Form, Input } from 'element-ui'
 import LangSelect from '@/components/LangSelect/index.vue'
 import { Action } from 'vuex-class'
 import to from 'await-to-js'
+import { ILoginParams } from '@/api/types'
 import formRules from './validator'
 
 @Component({
@@ -116,8 +117,7 @@ export default class Login extends Vue {
   @Ref('username') readonly usernameInputElement!: Input
   @Ref('password') readonly passwordInputElement!: Input
 
-  @Action('user/userLogin')
-  private userLogin!: (userInfo: { username: string, password: string }) => Promise<any>
+  @Action('user/UserLogin') private UserLogin!: (params: ILoginParams) => Promise<any>
 
   @Watch('$route', { immediate: true })
   private onRouteChange(route: Route) {
@@ -152,22 +152,13 @@ export default class Login extends Vue {
     })
   }
 
-  private handleLogin() {
-    this.dataFormElement.validate(async(valid: boolean) => {
+  private handleUserLogin() {
+    this.dataFormElement.validate(async valid => {
       if (!valid) {
         return
       }
-      this.loading = true
-      const [err, data] = await to(this.userLogin(this.loginForm))
-      this.loading = false
-      if (err || !data) {
-        this.$alert('登录失败!', '提示', {
-          confirmButtonText: '确定'
-        })
-        return
-      }
-      if (data.success !== 1) {
-        this.$message.error(data.message)
+      const [failed] = await to(this.UserLogin(this.loginForm))
+      if (failed) {
         return
       }
       this.$router.push({

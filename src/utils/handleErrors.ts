@@ -1,13 +1,8 @@
 import Vue from 'vue'
-import { Message } from 'element-ui'
 import to from 'await-to-js'
 import settings from '@/settings'
 
 const sentryCliSettings = settings.sentryCliSettings
-
-// TODO
-// fix bug https://github.com/ElementUI/babel-plugin-component/issues/31
-const _Message = Message
 
 /**
  * @description 异步加载并注册Sentry异常监控模块
@@ -107,11 +102,11 @@ export const handleError = async(
   }
 
   if (ajaxMessage) {
-    _Message.error(ajaxMessage)
+    Vue.prototype.$message.error(ajaxMessage)
     return
   }
 
-  _Message.error(message || errorString)
+  Vue.prototype.$message.error(message || errorString)
 
   if (!isCaptureError) {
     throw error

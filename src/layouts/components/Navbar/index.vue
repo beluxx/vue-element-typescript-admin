@@ -50,7 +50,7 @@
           <el-dropdown-item divided>
             <span
               style="display:block;"
-              @click="logout"
+              @click="handleUserLogout"
             >{{ $t('navbar.logOut') }}</span>
           </el-dropdown-item>
         </el-dropdown-menu>
@@ -89,7 +89,7 @@ export default class Navbar extends Vue {
   @State(state => state.user.avatar) readonly avatar!: string
 
   @Action('app/ToggleSideBar') private ToggleSideBar!: (withoutAnimation: boolean) => void
-  @Action('user/userLogout') private userLogout!: () => Promise<any>
+  @Action('user/UserLogout') private UserLogout!: () => Promise<any>
 
   private toggleSideBar() {
     this.ToggleSideBar(false)
@@ -98,9 +98,9 @@ export default class Navbar extends Vue {
   /**
    * 退出登录
    */
-  private async logout() {
-    const [err, data] = await to(this.userLogout())
-    if (err || !data) {
+  private async handleUserLogout() {
+    const [failed] = await to(this.UserLogout())
+    if (failed) {
       return
     }
     this.$router.push(`/account/login?redirect=${this.$route.fullPath}`)
