@@ -9,7 +9,7 @@ element-ui后台管理系统模板(自用)，它基于 [vue](https://github.com/
 
 这是自己开发多个项目后的经验总结,主要借鉴了https://github.com/Armour/vue-typescript-admin-template ,在其基础上做了一些优化,修复了bug,拓展了功能.
 
-只保留了登录页,主页,404,401四个页面,mainlayout,pagelayout两种不同的布局,用来初始化一个项目最好不过
+只保留了登录页,主页,404,401四个页面,mainlayout,pagelayout两种不同的布局,用来初始化一个admin项目最好不过
 
 ## 功能
 
@@ -43,7 +43,7 @@ element-ui后台管理系统模板(自用)，它基于 [vue](https://github.com/
   - 权限配置
 
 - 多环境发布
-  - Dev / Stage / Prod
+  - Dev / Prod
 
 - 全局功能
   - 国际化多语言
@@ -65,6 +65,8 @@ element-ui后台管理系统模板(自用)，它基于 [vue](https://github.com/
   
 - eslint 代码检查
   - 使用vue官方强烈推荐的配置
+  
+- typedoc 自动生成文档
 
 - 组件
   - elementui 组件做了按需引入,默认全部组件都有引入,打包前记得将未使用的组件注释掉(src/plugins/element-ui.ts)
@@ -108,15 +110,16 @@ IDE工具强烈推荐使用[webstorm](https://www.jetbrains.com/webstorm/) 2019.
 │   ├── router                 # 路由
 │   ├── store                  # 全局 vuex store
 │   ├── styles                 # 全局样式
+│   ├── types                  # ts类型定义
 │   ├── utils                  # 全局方法
 │   ├── views                  # 所有页面
 │   ├── App.vue                # 入口页面
 │   ├── main.js                # 入口文件 加载组件 初始化等
 │   ├── permission.ts          # 权限管理
-│   ├── settings.ts            # 设置文件ts版导出用
-│   │   └─── settings.js       # 设置文件js
-│   └── shims.d.ts             # 模块注入
+│   └── settings.ts            # 设置文件ts版导出用
+│       └─── settings.js       # 设置文件js
 ├── tests                      # 测试
+├── webpackPlugins             # webpack插件
 ├── .browserslistrc            # browserslistrc 配置文件
 ├── .editorconfig              # 编辑器相关配置
 ├── .env.xxx                   # 环境变量配置
@@ -129,6 +132,7 @@ IDE工具强烈推荐使用[webstorm](https://www.jetbrains.com/webstorm/) 2019.
 ├── package.json               # package.json 依赖
 ├── postcss.config.js          # postcss 配置
 ├── tsconfig.json              # typescript 配置
+├── typedoc.js                 # typedoc 配置
 └── vue.config.js              # vue-cli 配置
 ```
 
@@ -177,7 +181,13 @@ yarn test:unit
 ### 自动生成 svg 组件(重要: 添加svg文件后请运行一次)
 
 ```bash
-yarn run svg
+yarn svg
+```
+
+### 自动生成文档 ./docs
+
+```bash
+yarn doc
 ```
 
 ### 自定义 Vue 配置
@@ -185,4 +195,5 @@ yarn run svg
 请看 [Configuration Reference](https://cli.vuejs.org/config/).
 
 ## 项目负责人
+
 urichen9606@gmail.com
