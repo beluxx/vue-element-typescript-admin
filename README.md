@@ -126,7 +126,6 @@ IDE工具强烈推荐使用[webstorm](https://www.jetbrains.com/webstorm/) 2019.
 ├── .env.xxx                   # 环境变量配置
 ├── .eslintrc.js               # eslint 配置
 ├── .sentryclirc               # sentry前端异常监控 配置
-├── alias.config.js            # 路径别名 配置(使用webstorm IDE时需要将其设置为webpack配置文件才能正确解析路径别名)
 ├── babel.config.js            # babel-loader 配置
 ├── jest.config.js             # jest 单元测试配置
 ├── tailwind.config.js         # tailwind 配置
