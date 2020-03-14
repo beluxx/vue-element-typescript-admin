@@ -84,6 +84,8 @@ element-ui后台管理系统模板(自用)，它基于 [vue](https://github.com/
 
 使用[sentry](https://docs.sentry.io/)进行线上bug监控
 
+使用[typedoc](http://typedoc.org/)自动生成项目文档
+
 IDE工具强烈推荐使用[webstorm](https://www.jetbrains.com/webstorm/) 2019.3以上的版本 和[vscode](https://code.visualstudio.com/)
 
 如果你第一次使用[webstorm](https://www.jetbrains.com/webstorm/),那么我推荐你导入我提供的配置文件(项目目录下的webstorm_settings.zip),以节省IDE配置时间
@@ -101,6 +103,7 @@ IDE工具强烈推荐使用[webstorm](https://www.jetbrains.com/webstorm/) 2019.
 │   ├── api                    # 所有请求
 │   ├── assets                 # 主题 字体等静态资源
 │   ├── components             # 全局组件
+│   ├── config                 # 全局配置文件(包括vuecli, sentry等)
 │   ├── directive              # 全局指令
 │   ├── filters                # 全局过滤函数
 │   ├── icons                  # svg 图标
@@ -115,9 +118,7 @@ IDE工具强烈推荐使用[webstorm](https://www.jetbrains.com/webstorm/) 2019.
 │   ├── views                  # 所有页面
 │   ├── App.vue                # 入口页面
 │   ├── main.js                # 入口文件 加载组件 初始化等
-│   ├── permission.ts          # 权限管理
-│   └── settings.ts            # 设置文件ts版导出用
-│       └─── settings.js       # 设置文件js
+│   └── permission.ts          # 权限管理
 ├── tests                      # 测试
 ├── webpackPlugins             # webpack插件
 ├── .browserslistrc            # browserslistrc 配置文件

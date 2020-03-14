@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router, { RouteConfig } from 'vue-router'
-import settings from '@/settings'
+import { cliSettings } from '@/config/settings'
 
 /* Layout */
 import { MainLayout, PageLayout } from '@/layouts/'
@@ -176,7 +176,7 @@ const createRouter = () => new Router({
       return { x: 0, y: 0 }
     }
   },
-  base: settings.cliSettings.baseUrl,
+  base: cliSettings.baseUrl,
   routes: constantRoutes
 })
 

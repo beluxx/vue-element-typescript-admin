@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import { ErrorLogModule } from '@/store/modules/error-log'
 import { isArray } from '@/utils/validate'
-import settings from '@/settings'
+import { appSettings } from '@/config/settings'
 import { handleError } from '@/utils/handleErrors'
 
-const { errorLog: needErrorLog } = settings.appSettings
+const { errorLog: needErrorLog } = appSettings
 
 const checkNeed = () => {
   const env = process.env.NODE_ENV

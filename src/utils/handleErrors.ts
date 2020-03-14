@@ -1,8 +1,6 @@
 import Vue from 'vue'
 import to from 'await-to-js'
-import settings from '@/settings'
-
-const sentryCliSettings = settings.sentryCliSettings
+import { sentryCliSettings } from '@/config/settings'
 
 /**
  * @description 异步加载并注册Sentry异常监控模块
