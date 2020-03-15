@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router, { RouteConfig } from 'vue-router'
-import { cliSettings } from '@/config/settings'
+import { cliSettings } from '@/config'
 
 /* Layout */
 import { MainLayout, PageLayout } from '@/layouts/'

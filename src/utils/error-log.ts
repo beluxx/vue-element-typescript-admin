@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import { ErrorLogModule } from '@/store/modules/error-log'
 import { isArray } from '@/utils/validate'
-import { appSettings } from '@/config/settings'
+import { appSettings } from '@/config'
 import { handleError } from '@/utils/handleErrors'
 
 const { errorLog: needErrorLog } = appSettings

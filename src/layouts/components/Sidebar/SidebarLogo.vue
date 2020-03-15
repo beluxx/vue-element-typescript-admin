@@ -35,7 +35,7 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator'
-import { appSettings } from '@/config/settings'
+import { appSettings } from '@/config'
 
 @Component({
   name: 'SidebarLogo'

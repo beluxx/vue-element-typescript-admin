@@ -2,7 +2,7 @@ import Vue from 'vue'
 import axios from 'axios'
 import { UserModule } from '@/store/modules/user'
 import { REQUEST_CANCEL, RESOLVED_ERROR } from '@/utils/handleErrors'
-import { cliSettings } from '@/config/settings'
+import { cliSettings } from '@/config'
 
 // 正在进行的请求列表,用于中断请求
 export const requestCancelList: any[] = []
